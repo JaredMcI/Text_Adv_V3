@@ -242,7 +242,7 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
-    public static void AttackB(Creature Enemy){
+    public static void AttackB(EnemyConstructor Enemy){
         Event = "Player_AttackB";
         Attack(user,Enemy);
         MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
@@ -251,7 +251,7 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
-    public static void AttackC(Creature Enemy){
+    public static void AttackC(EnemyConstructor Enemy){
         Event = "Player_AttackC";
         Attack(user,Enemy);
         MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
@@ -260,7 +260,7 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
-    public static void AttackD(Creature Enemy){
+    public static void AttackD(EnemyConstructor Enemy){
         Event = "Player_AttackD";
         Attack(user,Enemy);
         MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
@@ -269,7 +269,7 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
-    public static void AttackE(Creature Enemy){
+    public static void AttackE(EnemyConstructor Enemy){
         Event = "Player_AttackE";
         Attack(user,Enemy);
         MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
@@ -333,11 +333,11 @@ public class Scenarios extends Main {
 
 
 
-    public static void Attack(Player User, Creature Enemey){
+    public static void Attack(Player User, EnemyConstructor Enemey){
         Enemey.setHealth(Enemey.getHealth() - User.getWeapon().getDamage());
 
     }
-    public static void CreatureAttack(Creature Enemey, Player User){
+    public static void CreatureAttack(EnemyConstructor Enemey, Player User){
         User.setHealth(User.getHealth() - Enemey.getWeapon().getDamage());
 
 

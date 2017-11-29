@@ -22,7 +22,7 @@ public class Main extends JFrame {
     static int use = 0;
     static Weapon Dagger = new Weapon(7,"Cutting",4.3,"Dagger");
     static Weapon Wand = new Weapon(5,"Bludgeon",2.1,"Wand");
-    static Creature Witch = new Creature(40,6,0,3,"Cutting",Wand,"Witch");
+    static EnemyConstructor Witch = new EnemyConstructor(40,2,Wand,"Witch");
 
     //Stat Bar Labels
     JLabel HPlabel,ArmourLabel, StrengthLabel;
@@ -613,7 +613,7 @@ public class ChoiceHandler implements ActionListener {
             case "BattleB":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.AttackB(Opponent);
+                        Scenarios.AttackB(Witch);
                         break;
                     case "CB":
                         Scenarios.Cave();
@@ -627,7 +627,7 @@ public class ChoiceHandler implements ActionListener {
             case "BattleC":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.AttackC(Opponent);
+                        Scenarios.AttackC(Witch);
                         break;
                     case "CB":
                         Scenarios.Ravine();
@@ -641,7 +641,7 @@ public class ChoiceHandler implements ActionListener {
             case "BattleD":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.AttackD(Opponent);
+                        Scenarios.AttackD(Witch);
                         break;
                     case "CB":Scenarios.Caverns();
                         break;
@@ -654,7 +654,7 @@ public class ChoiceHandler implements ActionListener {
             case "BattleE":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.AttackE(Opponent);
+                        Scenarios.AttackE(Witch);
                         break;
                     case "CB":
                         break;

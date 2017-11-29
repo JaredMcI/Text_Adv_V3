@@ -17,8 +17,8 @@
           <file leaf-file-name="Scenarios.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Scenarios.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="398">
-                  <caret line="341" column="0" lean-forward="true" selection-start-line="341" selection-start-column="0" selection-end-line="341" selection-end-column="0" />
+                <state relative-caret-position="-265">
+                  <caret line="271" column="47" lean-forward="false" selection-start-line="271" selection-start-column="47" selection-end-line="271" selection-end-column="47" />
                   <folding />
                 </state>
               </provider>
@@ -37,8 +37,8 @@
           <file leaf-file-name="Creature.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Creature.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="24">
-                  <caret line="23" column="64" lean-forward="true" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
+                <state relative-caret-position="136">
+                  <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
                   <folding>
                     <element signature="e#2133#2134#0" expanded="true" />
                     <element signature="e#2212#2213#0" expanded="true" />
@@ -47,11 +47,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="EnemyConstructor.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="EnemyConstructor.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/EnemyConstructor.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
+                <state relative-caret-position="408">
+                  <caret line="29" column="25" lean-forward="false" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -67,11 +67,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="371">
-                  <caret line="535" column="42" lean-forward="false" selection-start-line="535" selection-start-column="42" selection-end-line="535" selection-end-column="42" />
+                <state relative-caret-position="262">
+                  <caret line="656" column="47" lean-forward="false" selection-start-line="656" selection-start-column="47" selection-end-line="656" selection-end-column="47" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -120,12 +120,13 @@
         <option value="$PROJECT_DIR$/src/ChoiceHandler.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/Creature.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/EnemyConstructor.java" />
         <option value="$PROJECT_DIR$/src/Scenarios.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="521" />
     <option name="width" value="695" />
     <option name="height" value="735" />
@@ -298,7 +299,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -578,21 +579,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Creature.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="535" column="42" lean-forward="false" selection-start-line="535" selection-start-column="42" selection-end-line="535" selection-end-column="42" />
+        <state relative-caret-position="136">
+          <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2133#2134#0" expanded="true" />
+            <element signature="e#2212#2213#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scenarios.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="341" column="0" lean-forward="true" selection-start-line="341" selection-start-column="0" selection-end-line="341" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -604,22 +598,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Creature.java">
+    <entry file="file://$PROJECT_DIR$/src/EnemyConstructor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="23" column="64" lean-forward="true" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
-          <folding>
-            <element signature="e#2133#2134#0" expanded="true" />
-            <element signature="e#2212#2213#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="408">
+          <caret line="29" column="25" lean-forward="false" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EnemyConstructor.java">
+    <entry file="file://$PROJECT_DIR$/src/Scenarios.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
+        <state relative-caret-position="-265">
+          <caret line="271" column="47" lean-forward="false" selection-start-line="271" selection-start-column="47" selection-end-line="271" selection-end-column="47" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="656" column="47" lean-forward="false" selection-start-line="656" selection-start-column="47" selection-end-line="656" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
