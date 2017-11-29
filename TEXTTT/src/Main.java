@@ -17,10 +17,12 @@ public class Main extends JFrame {
     static JButton StartButton,ChoiceA,ChoiceB,ChoiceC,ChoiceD;
     static Player user;
     static Weapon StartingWeapon = new Weapon(12,"Cutting",5.7,"Sword");
-
+    static Creature Opponent = new Creature();
     //Gameplay Variables
     static int use = 0;
     static Weapon Dagger = new Weapon(7,"Cutting",4.3,"Dagger");
+    static Weapon Wand = new Weapon(5,"Bludgeon",2.1,"Wand");
+    static Creature Witch = new Creature(40,6,0,3,"Cutting",Wand,"Witch");
 
     //Stat Bar Labels
     JLabel HPlabel,ArmourLabel, StrengthLabel;
@@ -184,7 +186,7 @@ public class Main extends JFrame {
         Scenarios.HomeStead();
     }
     public void CharectarCreation(){
-        user = new Player(100, 3, 0.15, 8, "Piercing", StartingWeapon, 7, 8, "Johnny", 1.81);
+        user = new Player(100, 3, 0.15, 8, "Piercing", StartingWeapon, "Johnny",7, 1.45);
         HPlabelUser.setText(String.valueOf(user.getHealth()));
         ArmourLabelUser.setText(String.valueOf(user.getArmour()));
         StrengthLabelUser.setText(String.valueOf(user.getStrength()));
@@ -266,7 +268,8 @@ public class ChoiceHandler implements ActionListener {
             case "Forest":
                 switch (Choice) {
                     case "CA":
-                        break; // Attack
+                        Scenarios.BattleA();
+                        break;
                     case "CB":
                         Scenarios.BurnedVillage();
                         break;
@@ -295,7 +298,7 @@ public class ChoiceHandler implements ActionListener {
             case "Inner_Cave":
                 switch (Choice) {
                     case "CA":
-                        //ATTACK
+                        Scenarios.BattleB(Opponent);
                         break;
                     case "CB":
                         Scenarios.Cave();
@@ -379,7 +382,8 @@ public class ChoiceHandler implements ActionListener {
             case "Ravine":
                 switch (Choice) {
                     case "CA":
-                        break; // Attack + Strength Boost
+                        Scenarios.BattleC(Opponent);
+                        break;
                     case "CB":
                         Scenarios.MountainBase();
                         break;
@@ -393,6 +397,7 @@ public class ChoiceHandler implements ActionListener {
             case "Caverns":
                 switch (Choice) {
                     case "CA":
+                        Scenarios.BattleD(Opponent);
                         break; // Attack +Health Boost
                     case "CB":
                         Scenarios.BurnedVillage();
@@ -419,7 +424,7 @@ public class ChoiceHandler implements ActionListener {
                 break;
             case "Talk_Troll_Bad":
                 switch (Choice) {
-                    case "CA":
+                    case "CA": Scenarios.BattleD(Opponent);
                         break; // Attack +Health Boost
                     case "CB":
                         break;
@@ -457,11 +462,13 @@ public class ChoiceHandler implements ActionListener {
                         break;
                 }
                 break;
-            case "":
+
+// PLAYER ATTACK SWITCH HANDLERS
+            case "Player_AttackA":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.Cave();
-                        break; // Attack
+                        Scenarios.EnemyAttackA();
+                        break;
                     case "CB":
                         break;
                     case "CC":
@@ -470,6 +477,194 @@ public class ChoiceHandler implements ActionListener {
                         break;
                 }
                 break;
+            case "Player_AttackB":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.EnemyAttackB();
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "Player_AttackC":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.EnemyAttackC();
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "Player_AttackD":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.EnemyAttackD();
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "Player_AttackE":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.EnemyAttackE();
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+// ENEMY ATTACK SWITCH HANDLERS
+            case "Enemy_AttackA":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.BattleA();
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+                case "Enemy_AttackB":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.BattleB(Opponent);
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "Enemy_AttackC":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.BattleC(Opponent);
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "Enemy_AttackD":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.BattleD(Opponent);
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "Enemy_AttackE":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.BattleE(Opponent);
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+// BATTLE SWITCH HANDLERS
+            case "BattleA":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.AttackA();
+                        break;
+                    case "CB":
+                        Scenarios.Forest();
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "BattleB":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.AttackB(Opponent);
+                        break;
+                    case "CB":
+                        Scenarios.Cave();
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "BattleC":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.AttackC(Opponent);
+                        break;
+                    case "CB":
+                        Scenarios.Ravine();
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "BattleD":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.AttackD(Opponent);
+                        break;
+                    case "CB":Scenarios.Caverns();
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "BattleE":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.AttackE(Opponent);
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+
 
 
         }

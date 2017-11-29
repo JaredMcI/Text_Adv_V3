@@ -179,7 +179,6 @@ public class Scenarios extends Main {
         TalkTrollBad();
     }}
 
-
     public static void TalkTrollBad(){
      Event = "Troll_Conversation_Bad";
         MainStory.setText("ILL KILL YOU BEFORE YOU KILL ME!");
@@ -189,5 +188,158 @@ public class Scenarios extends Main {
         ChoiceD.setText("");
     }
 
+    // Battle start Methods
+    public static void BattleA(){
+        Event = "BattleA";
+        MainStory.setText("You face a " + Witch.getName() + ", \n what do you do?");
+        ChoiceA.setText("Attack");
+        ChoiceB.setText("Retreat");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
     }
+    public static void BattleB(Creature opponent){
+        Event = "BattleB";
+        MainStory.setText("You face a " + opponent.getName() + ", \n what do you do?");
+        ChoiceA.setText("Attack");
+        ChoiceB.setText("Retreat");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void BattleC(Creature opponent){
+        Event = "BattleC";
+        MainStory.setText("You face a " + opponent.getName() + ", \n what do you do?");
+        ChoiceA.setText("Attack");
+        ChoiceB.setText("Retreat");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void BattleD(Creature opponent){
+        Event = "BattleD";
+        MainStory.setText("You face a " + opponent.getName() + ", \n what do you do?");
+        ChoiceA.setText("Attack");
+        ChoiceB.setText("Retreat");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void BattleE(Creature opponent){
+        Event = "BattleE";
+        MainStory.setText("You face a " + opponent.getName() + ", \n what do you do?");
+        ChoiceA.setText("Attack");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+
+
+
+    // Player Attack Methods
+    public static void AttackA(){
+        Event = "Player_AttackA";
+        Attack(user, Witch);
+        MainStory.setText("You Strike the " + Witch.getName() + ", Enemy has "+ Witch.getHealth() + "HP left.");
+        ChoiceA.setText("Next");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void AttackB(Creature Enemy){
+        Event = "Player_AttackB";
+        Attack(user,Enemy);
+        MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
+        ChoiceA.setText("Next");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void AttackC(Creature Enemy){
+        Event = "Player_AttackC";
+        Attack(user,Enemy);
+        MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
+        ChoiceA.setText("Next");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void AttackD(Creature Enemy){
+        Event = "Player_AttackD";
+        Attack(user,Enemy);
+        MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
+        ChoiceA.setText("Next");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void AttackE(Creature Enemy){
+        Event = "Player_AttackE";
+        Attack(user,Enemy);
+        MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
+        ChoiceA.setText("Next");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+
+    //Enemy Attack Methods
+    public static void EnemyAttackA(){
+        CreatureAttack(Witch,user);
+        Event = "Enemy_AttackA";
+        MainStory.setText(Witch.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
+        HPlabelUser.setText(String.valueOf(user.getHealth()));
+        ChoiceA.setText("Next");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void EnemyAttackB(){
+        Creature.Attack(user);
+        Event = "Enemy_AttackB";
+        MainStory.setText(Creature.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
+        HPlabelUser.setText(String.valueOf(user.getHealth()));
+        ChoiceA.setText("Next");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void EnemyAttackC(){
+        Creature.Attack(user);
+        Event = "Enemy_AttackC";
+        MainStory.setText(Creature.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
+        HPlabelUser.setText(String.valueOf(user.getHealth()));
+        ChoiceA.setText("Next");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void EnemyAttackD(){
+        Creature.Attack(user);
+        Event = "Enemy_AttackD";
+        MainStory.setText(Creature.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
+        HPlabelUser.setText(String.valueOf(user.getHealth()));
+        ChoiceA.setText("Next");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void EnemyAttackE(){
+        CreatureAttack(Witch,user);
+        Event = "Enemy_AttackE";
+        MainStory.setText(Creature.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
+        HPlabelUser.setText(String.valueOf(user.getHealth()));
+        ChoiceA.setText("Next");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+
+
+
+    public static void Attack(Player User, Creature Enemey){
+        Enemey.setHealth(Enemey.getHealth() - User.getWeapon().getDamage());
+
+    }
+    public static void CreatureAttack(Creature Enemey, Player User){
+        User.setHealth(User.getHealth() - Enemey.getWeapon().getDamage());
+
+
+}}
 

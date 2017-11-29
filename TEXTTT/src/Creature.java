@@ -8,6 +8,7 @@ public class Creature {
     private static int Strength;
     private static String Vulnerability;
     private static Weapon Weapon;
+    private static String name;
 
     //Mutators
     public static void setHealth(double health) { Health = health; }
@@ -16,6 +17,7 @@ public class Creature {
     public void setStrength(int strength) { Strength = strength; }
     public void setVulnerability(String vulnerability) { Vulnerability = vulnerability; }
     public static void setWeapon(Weapon weapon) { Weapon = weapon; }
+    public static void setName(String name) { Creature.name = name; }
 
     //Accessor
     public static double getHealth() { return Health; }
@@ -24,6 +26,7 @@ public class Creature {
     public static int getStrength() { return Strength; }
     public static String getVulnerability() { return Vulnerability; }
     public static Weapon getWeapon() { return Weapon; }
+    public static String getName() { return name; }
 
     //ToString
     public String toString() {
@@ -38,34 +41,18 @@ public class Creature {
         setStrength(0);
         setVulnerability("Unknown");
         setWeapon(Weapon);
+        setName("Unknown");
     }
-    public Creature(double Health,int Intelligence,double Armour,int Strength,String Vulnerability,Weapon Weapon){
+    public Creature(double Health,int Intelligence,double Armour,int Strength,String Vulnerability,Weapon Weapon,String name){
         setHealth(Health);
         setIntelligence(Intelligence);
         setArmour(Armour);
         setStrength(Strength);
         setVulnerability(Vulnerability);
         setWeapon(Weapon);
+        setName(name);
     }
 
-    public void Attack(Player User){
-        double AttackMultiplier = 0;
-        if (Creature.getWeapon().getDamage_Type() == User.getVulnerability()){
-            AttackMultiplier += 0.15;
-        }
-        if (Creature.getIntelligence() >  User.getIntelligence()){
-            AttackMultiplier += 0.1;
-
-        }
-        AttackMultiplier += Creature.getStrength()* 0.05;
-
-        User.setHealth((User.getHealth() + (User.getHealth()*User.getArmour())) - Creature.getWeapon().getDamage()*AttackMultiplier);
-        if(User.getHealth() < 0){
-            JOptionPane.showMessageDialog(null, "Your Opponent slayed you");
-        }
-        else
-            JOptionPane.showMessageDialog(null, "You have" + User.getHealth() + " HP remaining.");
-
-    }
-
-}
+    public static void Attack(Player User){
+        User.setHealth(User.getHealth() - Creature.getWeapon().getDamage());
+}}
