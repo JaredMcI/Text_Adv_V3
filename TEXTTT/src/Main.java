@@ -16,11 +16,10 @@ public class Main extends JFrame {
     static JPanel TitlePanel, UserStatPanel, ButtonPanel,StoryButtonPanel,TextPanel;
     static JButton StartButton,ChoiceA,ChoiceB,ChoiceC,ChoiceD;
     static Player user;
-    static Weapon StartingWeapon = new Weapon(12,"Cutting",5.7,"Sword");
     static Creature Opponent = new Creature();
     //Gameplay Variables
     static int use = 0;
-    static Weapon Dagger = new Weapon(7,"Cutting",4.3,"Dagger");
+    static Weapon Dagger = new Weapon(15,"Cutting",4.3,"Dagger");
     static Weapon Wand = new Weapon(5,"Bludgeon",2.1,"Wand");
     static EnemyConstructor Witch = new EnemyConstructor(40,2,Wand,"Witch");
 
@@ -39,6 +38,7 @@ public class Main extends JFrame {
     }
 
     public Main(){
+
         Window = new JFrame();
         Window.setSize(800,600);
         Window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -186,7 +186,8 @@ public class Main extends JFrame {
         Scenarios.HomeStead();
     }
     public void CharectarCreation(){
-        user = new Player(100, 3, 0.15, 8, "Piercing", StartingWeapon, "Johnny",7, 1.45);
+        Weapon StartingWeapon = new Weapon(12,"Cutting",5.7,"Sword");
+        user = new Player(100, 3, 0.15, 8, "Piercing",Dagger , "Johnny",7, 1.45);
         HPlabelUser.setText(String.valueOf(user.getHealth()));
         ArmourLabelUser.setText(String.valueOf(user.getArmour()));
         StrengthLabelUser.setText(String.valueOf(user.getStrength()));

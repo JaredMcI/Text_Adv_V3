@@ -3,17 +3,21 @@ import javax.naming.Name;
 public class EnemyConstructor {
     private static double Health;
     private static int Strength;
-    private static Weapon Weapon;
+    private static Weapon weapon;
     private static String name;
+    private static double AttackDamage;
 
     public static double getHealth() { return Health; }
     public static void setHealth(double health) { Health = health; }
 
+    public static void setAttackDamage(double attackDamage) { AttackDamage = attackDamage; }
+    public static double getAttackDamage() { return AttackDamage; }
+
     public static int getStrength() { return Strength; }
     public static void setStrength(int strength) { Strength = strength; }
 
-    public static Weapon getWeapon() { return Weapon; }
-    public static void setWeapon(Weapon weapon) { Weapon = weapon; }
+    public static Weapon getWeapon() { return weapon; }
+    public static void setWeapon(Weapon Weapon) { weapon = Weapon; }
 
     public static String getName() { return name; }
     public static void setName(String name) { EnemyConstructor.name = name; }
@@ -21,7 +25,7 @@ public class EnemyConstructor {
     public EnemyConstructor() {
         setName("Unknown");
         setHealth(0);
-        setWeapon(Weapon);
+        setWeapon(weapon);
         setStrength(0);
     }
     public EnemyConstructor(double health, int strength, Weapon weapon, String name){
@@ -29,6 +33,7 @@ public class EnemyConstructor {
         setHealth(health);
         setWeapon(weapon);
         setStrength(strength);
+        setAttackDamage(weapon.getDamage());
 
 
     }

@@ -235,7 +235,7 @@ public class Scenarios extends Main {
     // Player Attack Methods
     public static void AttackA(){
         Event = "Player_AttackA";
-        Attack(user, Witch);
+        Attack( Witch);
         MainStory.setText("You Strike the " + Witch.getName() + ", Enemy has "+ Witch.getHealth() + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
@@ -244,7 +244,7 @@ public class Scenarios extends Main {
     }
     public static void AttackB(EnemyConstructor Enemy){
         Event = "Player_AttackB";
-        Attack(user,Enemy);
+        Attack(Enemy);
         MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
@@ -253,7 +253,7 @@ public class Scenarios extends Main {
     }
     public static void AttackC(EnemyConstructor Enemy){
         Event = "Player_AttackC";
-        Attack(user,Enemy);
+        Attack(Enemy);
         MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
@@ -262,7 +262,7 @@ public class Scenarios extends Main {
     }
     public static void AttackD(EnemyConstructor Enemy){
         Event = "Player_AttackD";
-        Attack(user,Enemy);
+        Attack(Enemy);
         MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
@@ -271,7 +271,7 @@ public class Scenarios extends Main {
     }
     public static void AttackE(EnemyConstructor Enemy){
         Event = "Player_AttackE";
-        Attack(user,Enemy);
+        Attack(Enemy);
         MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
@@ -333,12 +333,13 @@ public class Scenarios extends Main {
 
 
 
-    public static void Attack(Player User, EnemyConstructor Enemey){
-        Enemey.setHealth(Enemey.getHealth() - User.getWeapon().getDamage());
+    public static void Attack(EnemyConstructor Enemey){
+        double Damage = user.getAttackDamage();
+        Enemey.setHealth(Enemey.getHealth() - Damage);
 
     }
     public static void CreatureAttack(EnemyConstructor Enemey, Player User){
-        User.setHealth(User.getHealth() - Enemey.getWeapon().getDamage());
+        User.setHealth(User.getHealth() - Enemey.getAttackDamage());
 
 
 }}
