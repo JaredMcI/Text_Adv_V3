@@ -398,12 +398,39 @@ public class ChoiceHandler implements ActionListener {
                         Scenarios.BurnedVillage();
                         break;
                     case "CC":
-                        break; // Talk To Troll
+                        Scenarios.TalkTroll();
+                        break;
                     case "CD":
-                        Scenarios.MountainBase();
                         break;
                 }
                 break;
+            case "Talk_Troll":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.MountainBase();
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "Talk_Troll_Bad":
+                switch (Choice) {
+                    case "CA":
+                        break; // Attack +Health Boost
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+
+
             case "Mountain_Base":
                 switch (Choice) {
                     case "CA":

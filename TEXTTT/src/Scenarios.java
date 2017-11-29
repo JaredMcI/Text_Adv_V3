@@ -1,29 +1,33 @@
 public class Scenarios extends Main {
 
-    public static void HomeStead(){
-        Event =  "Homestead";
+    public static void HomeStead() {
+        Event = "Homestead";
         MainStory.setText("You sharpen your blade and prepare to\nembark on your journey, The village fool \nbeckons for your attention, \nwhat do you do? ");
         ChoiceA.setText("Talk to the Fool");
         ChoiceB.setText("Head to the Forest");
         ChoiceC.setText("Head to the Castle");
         ChoiceD.setText("");
     }
-    public static void Forest(){
-        Event =  "Forest";
+
+    public static void Forest() {
+        Event = "Forest";
         MainStory.setText("You enter a dark forest,A field of mist surrounds the area, There is a cackling witch in the distance, what do you do?");
         ChoiceA.setText("Attack the witch");
         ChoiceB.setText("Head to the Burned Village");
         ChoiceC.setText("Head to the Cave");
         ChoiceD.setText("Retreat to the local castle.");
     }
-    public static void Castle(){
-        Event =  "Castle";
+
+    public static void Castle() {
+        Event = "Castle";
         MainStory.setText("You approach a large recently attack\n castle, a guard stops you as you pass,\n what do you do? ");
         ChoiceA.setText("Talk to the Guard");
         ChoiceB.setText("Head to the Open Plains");
         ChoiceC.setText("Head to the Burned Village");
         ChoiceD.setText("");
-} public static void Cave() {
+    }
+
+    public static void Cave() {
         Event = "Cave";
         MainStory.setText("A large cave blocks the path, you can hear shuffling inside,\n what do you do? ");
         ChoiceA.setText("Enter the cave");
@@ -31,7 +35,8 @@ public class Scenarios extends Main {
         ChoiceC.setText("Retreat to the Forest");
         ChoiceD.setText("");
     }
-    public static void InnerCave(){
+
+    public static void InnerCave() {
         Event = "Inner_Cave";
         MainStory.setText("You can see a glow in the distance\n an ork stands in your way,\n what do you do? ");
         ChoiceA.setText("Attack");
@@ -39,6 +44,7 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
+
     public static void BurnedVillage() {
         Event = "Burned_Village";
         MainStory.setText("You enter a recently torched village< a screaming stranger approaches\n what do you do? ");
@@ -47,6 +53,7 @@ public class Scenarios extends Main {
         ChoiceC.setText("Head to the Ravine");
         ChoiceD.setText("Talk to the Mad Man");
     }
+
     public static void OpenPlains() {
         Event = "Open_Plains";
         MainStory.setText("Your in a wide open plane, the air is fresh and the grass soft\n what do you do? ");
@@ -55,6 +62,7 @@ public class Scenarios extends Main {
         ChoiceC.setText("Head back to the Castle");
         ChoiceD.setText("Pick up Object");
     }
+
     public static void Ravine() {
         Event = "Ravine";
         MainStory.setText("You are in a wide Crumbling Ravine, a goblin scremas in the distance and charges at you\n what do you do? ");
@@ -63,6 +71,7 @@ public class Scenarios extends Main {
         ChoiceC.setText("Head back to the Burned Village");
         ChoiceD.setText("");
     }
+
     public static void Caverns() {
         Event = "Caverns";
         MainStory.setText("You enter a decaying cavern,\na Troll blocks the path to the Mountain \n what do you do? ");
@@ -71,7 +80,8 @@ public class Scenarios extends Main {
         ChoiceC.setText("Talk to the troll");
         ChoiceD.setText("Head to the Base of the Mountain");
     }
-    public static void MountainBase(){
+
+    public static void MountainBase() {
         Event = "Mountain_Base";
         MainStory.setText("There is no retreating, The dragon sits atop the mountain\n what do you do? ");
         ChoiceA.setText("Scale the mountain");
@@ -79,7 +89,8 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
-    public static void Mountain(){
+
+    public static void Mountain() {
         Event = "Mountain";
         MainStory.setText("The dragon growls, it scurries towards you\n what do you do? ");
         ChoiceA.setText("Attack the Dragon");
@@ -89,22 +100,19 @@ public class Scenarios extends Main {
     }
 
 
-
-
-
-    public static void TalkGuard(){
-        Event =  "Guard_Conversation";
-        if(user.getDexterity() >= 6){
-        MainStory.setText("Go through the burned village\n and down past the Ravine,\n Hes there!!");
-        }
-        else
+    public static void TalkGuard() {
+        Event = "Guard_Conversation";
+        if (user.getDexterity() >= 6) {
+            MainStory.setText("Go through the burned village\n and down past the Ravine,\n Hes there!!");
+        } else
             MainStory.setText("Stay Back Wanderer!! \nWe barely survived the siege!");
         ChoiceA.setText("Go Back");
         ChoiceB.setText("");
         ChoiceC.setText("");
         ChoiceD.setText("");
-        }
-    public static void TalkFool(){
+    }
+
+    public static void TalkFool() {
         Event = "Fool_Conversation";
         MainStory.setText("Insanity is doing the same thing over and\n over... Click AGAIN");
         ChoiceA.setText("Go Back");
@@ -112,16 +120,15 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
-    public static void TalkMadMan(){
+
+    public static void TalkMadMan() {
         Event = "Mad_Man_Conversation";
-        if(user.getCharisma() > 5){
+        if (user.getCharisma() > 5) {
             MainStory.setText("The ting goes skrrrahh, pap, pap, ka-ka-ka. \n" +
                     "Skibiki-pap-pap, and a \npu-pu-pudrrrr-boom. Skya, \ndu-du-ku-ku-dun-dun. Poom, \npoom");
-        }
-        else if(user.getCharisma() > 7 && user.getIntelligence() > 6){
+        } else if (user.getCharisma() > 7 && user.getIntelligence() > 6) {
             MainStory.setText("The bigger beast headed\n to the caverns, Maybe he was just\n sad?!");
-        }
-        else {
+        } else {
             MainStory.setText("Insanity is doing the same thing over and\n over... Click AGAIN");
         }
         ChoiceA.setText("Go Back");
@@ -130,15 +137,15 @@ public class Scenarios extends Main {
         ChoiceD.setText("");
 
     }
-    public static void DeepBreath(){
+
+    public static void DeepBreath() {
         Event = "Deep_Breathe";
-        if(use == 0){
-        user.setHealth(user.getHealth()+10);
-        use =1;
-        MainStory.setText("The air is cold, you feel alive, +10hp");
-        HPlabelUser.setText(String.valueOf(user.getHealth()));
-        }
-        else{
+        if (use == 0) {
+            user.setHealth(user.getHealth() + 10);
+            use = 1;
+            MainStory.setText("The air is cold, you feel alive, +10hp");
+            HPlabelUser.setText(String.valueOf(user.getHealth()));
+        } else {
             MainStory.setText("\"I should really be moving on\"");
         }
         ChoiceA.setText("Go Back");
@@ -146,18 +153,9 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
-    public static void PickObject(){
+
+    public static void PickObject() {
         Event = "Plains_Dagger";
-          MainStory.setText("You have found Dagger on the ground");
-          user.setWeapon(Dagger);
-          WeaponLabelUser.setText(user.getWeapon().getName());
-        ChoiceA.setText("Go Back");
-        ChoiceB.setText("");
-        ChoiceC.setText("");
-        ChoiceD.setText("");
-    }
-    public static void TalkTroll(){
-        Event = "Troll_Conversation";
         MainStory.setText("You have found Dagger on the ground");
         user.setWeapon(Dagger);
         WeaponLabelUser.setText(user.getWeapon().getName());
@@ -166,4 +164,30 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
-}
+
+    public static void TalkTroll() {
+        Event = "Troll_Conversation";
+        if (user.getCharisma() > 7) {
+            MainStory.setText("Everybody assumes I'm evil,\n pass stranger, let me be.");
+            ChoiceA.setText("Head to the Base of the Mountain");
+            ChoiceB.setText("");
+            ChoiceC.setText("");
+            ChoiceD.setText("");
+        }
+
+    else{
+        TalkTrollBad();
+    }}
+
+
+    public static void TalkTrollBad(){
+     Event = "Troll_Conversation_Bad";
+        MainStory.setText("ILL KILL YOU BEFORE YOU KILL ME!");
+        ChoiceA.setText("Next");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+
+    }
+
