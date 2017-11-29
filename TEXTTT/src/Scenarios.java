@@ -31,6 +31,14 @@ public class Scenarios extends Main {
         ChoiceC.setText("Retreat to the Forest");
         ChoiceD.setText("");
     }
+    public static void InnerCave(){
+        Event = "Inner_Cave";
+        MainStory.setText("You can see a glow in the distance\n an ork stands in your way,\n what do you do? ");
+        ChoiceA.setText("Attack");
+        ChoiceB.setText("Exit the Cave");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
     public static void BurnedVillage() {
         Event = "Burned_Village";
         MainStory.setText("You enter a recently torched village< a screaming stranger approaches\n what do you do? ");
@@ -45,7 +53,7 @@ public class Scenarios extends Main {
         ChoiceA.setText("Head to the caverns");
         ChoiceB.setText("Take a deep Breathe");
         ChoiceC.setText("Head back to the Castle");
-        ChoiceD.setText("");
+        ChoiceD.setText("Pick up Object");
     }
     public static void Ravine() {
         Event = "Ravine";
@@ -99,6 +107,60 @@ public class Scenarios extends Main {
     public static void TalkFool(){
         Event = "Fool_Conversation";
         MainStory.setText("Insanity is doing the same thing over and\n over... Click AGAIN");
+        ChoiceA.setText("Go Back");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void TalkMadMan(){
+        Event = "Mad_Man_Conversation";
+        if(user.getCharisma() > 5){
+            MainStory.setText("The ting goes skrrrahh, pap, pap, ka-ka-ka. \n" +
+                    "Skibiki-pap-pap, and a \npu-pu-pudrrrr-boom. Skya, \ndu-du-ku-ku-dun-dun. Poom, \npoom");
+        }
+        else if(user.getCharisma() > 7 && user.getIntelligence() > 6){
+            MainStory.setText("The bigger beast headed\n to the caverns, Maybe he was just\n sad?!");
+        }
+        else {
+            MainStory.setText("Insanity is doing the same thing over and\n over... Click AGAIN");
+        }
+        ChoiceA.setText("Go Back");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+
+    }
+    public static void DeepBreath(){
+        Event = "Deep_Breathe";
+        if(use == 0){
+        user.setHealth(user.getHealth()+10);
+        use =1;
+        MainStory.setText("The air is cold, you feel alive, +10hp");
+        HPlabelUser.setText(String.valueOf(user.getHealth()));
+        }
+        else{
+            MainStory.setText("\"I should really be moving on\"");
+        }
+        ChoiceA.setText("Go Back");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void PickObject(){
+        Event = "Plains_Dagger";
+          MainStory.setText("You have found Dagger on the ground");
+          user.setWeapon(Dagger);
+          WeaponLabelUser.setText(user.getWeapon().getName());
+        ChoiceA.setText("Go Back");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void TalkTroll(){
+        Event = "Troll_Conversation";
+        MainStory.setText("You have found Dagger on the ground");
+        user.setWeapon(Dagger);
+        WeaponLabelUser.setText(user.getWeapon().getName());
         ChoiceA.setText("Go Back");
         ChoiceB.setText("");
         ChoiceC.setText("");

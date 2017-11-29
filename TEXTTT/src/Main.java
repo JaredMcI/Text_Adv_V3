@@ -18,13 +18,17 @@ public class Main extends JFrame {
     static Player user;
     static Weapon StartingWeapon = new Weapon(12,"Cutting",5.7,"Sword");
 
+    //Gameplay Variables
+    static int use = 0;
+    static Weapon Dagger = new Weapon(7,"Cutting",4.3,"Dagger");
+
     //Stat Bar Labels
     JLabel HPlabel,ArmourLabel, StrengthLabel;
     JLabel  WeaponLabel, CharismaLabel;
 
     //Stat Bar User Values Labels
-    JLabel HPlabelUser, ArmourLabelUser, StrengthLabelUser;
-    JLabel WeaponLabelUser, CharismaLabelUser;
+    static JLabel HPlabelUser, ArmourLabelUser, StrengthLabelUser;
+    static JLabel WeaponLabelUser, CharismaLabelUser;
 
 
     public static void main(String[] args) {
@@ -277,6 +281,7 @@ public class ChoiceHandler implements ActionListener {
             case "Cave":
                 switch (Choice) {
                     case "CA":
+                        Scenarios.InnerCave();
                         break;
                     case "CB":
                         Scenarios.Caverns();
@@ -287,19 +292,46 @@ public class ChoiceHandler implements ActionListener {
                     case "CD":
                         break;
                 }
+            case "Inner_Cave":
+                switch (Choice) {
+                    case "CA":
+                        //ATTACK
+                        break;
+                    case "CB":
+                        Scenarios.Cave();
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
                 break;
             case "Burned_Village":
                 switch (Choice) {
                     case "CA":
                         Scenarios.Cave();
-                        break; // Attack
+                        break;
                     case "CB":
                         Scenarios.Caverns();
                         break;
                     case "CC":
                         Scenarios.Ravine();
                         break;
-                    case "CD": // Talk to Mad Man
+                    case "CD":
+                        Scenarios.TalkMadMan();
+                        break;
+                }
+                break;
+            case "Mad_Man_Conversation":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.BurnedVillage();
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
                         break;
                 }
                 break;
@@ -308,10 +340,37 @@ public class ChoiceHandler implements ActionListener {
                     case "CA":
                         Scenarios.Caverns();
                         break;
-                    case "CB": // Take a breath
+                    case "CB":
+                        Scenarios.DeepBreath();
                         break;
                     case "CC":
                         Scenarios.Castle();
+                        break;
+                    case "CD":
+                        Scenarios.PickObject();
+                        break;
+                }break;
+            case "Plains_Dagger":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.OpenPlains();
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }break;
+
+            case "Deep_Breath":
+                switch (Choice) {
+                    case "CA":
+                        Scenarios.OpenPlains();
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
                         break;
                     case "CD":
                         break;
@@ -320,7 +379,7 @@ public class ChoiceHandler implements ActionListener {
             case "Ravine":
                 switch (Choice) {
                     case "CA":
-                        break; // Attack
+                        break; // Attack + Strength Boost
                     case "CB":
                         Scenarios.MountainBase();
                         break;
@@ -334,7 +393,7 @@ public class ChoiceHandler implements ActionListener {
             case "Caverns":
                 switch (Choice) {
                     case "CA":
-                        break; // Attack
+                        break; // Attack +Health Boost
                     case "CB":
                         Scenarios.BurnedVillage();
                         break;
