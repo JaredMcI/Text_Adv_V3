@@ -19,9 +19,20 @@ public class Main extends JFrame {
     static Creature Opponent = new Creature();
     //Gameplay Variables
     static int use = 0;
-    static Weapon Dagger = new Weapon(15,"Cutting",4.3,"Dagger");
+    static Weapon Dagger = new Weapon(15,"Cutting",1.3,"Dagger");
+    static Weapon Shard = new Weapon(3,"Cutting",0.1,"Shard");
+    static Weapon Club = new Weapon(4,"Bludgeon",4.1,"Club");
+    static Weapon Fist = new Weapon(10,"Bludgeon",0.1,"Fist");
+    static Weapon Bite = new Weapon(12,"Piercing",5.1,"Bite");
     static Weapon Wand = new Weapon(5,"Bludgeon",2.1,"Wand");
-    static EnemyConstructor Witch = new EnemyConstructor(40,2,Wand,"Witch");
+
+
+    //Enemies in Game Generated
+    static EnemyConstructor Witch = new EnemyConstructor(22,2,Wand,"Witch");
+    static EnemyConstructor Ork = new EnemyConstructor(29,3,Shard,"Ork");
+    static EnemyConstructor Goblin = new EnemyConstructor(27,4,Club,"Goblin");
+    static EnemyConstructor Troll = new EnemyConstructor(40,6,Fist,"Troll");
+    static EnemyConstructor Dragon = new EnemyConstructor(55,7,Bite,"Dragon");
 
     //Stat Bar Labels
     JLabel HPlabel,ArmourLabel, StrengthLabel;
