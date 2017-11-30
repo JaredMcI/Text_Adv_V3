@@ -1,5 +1,6 @@
 public class Scenarios extends Main {
 
+
     public static void HomeStead() {
         Event = "Homestead";
         MainStory.setText("You sharpen your blade and prepare to\nembark on your journey, The village fool \nbeckons for your attention, \nwhat do you do? ");
@@ -190,44 +191,65 @@ public class Scenarios extends Main {
 
     // Battle start Methods
     public static void BattleA(){
+
+        if(TriggerA == 0) {
+            Witch = new EnemyConstructor(22, 2, (double) 5, "Witch");
+        }
         Event = "BattleA";
         MainStory.setText("You face a " + Witch.getName() + ", \n what do you do?");
         ChoiceA.setText("Attack");
         ChoiceB.setText("Retreat");
         ChoiceC.setText("");
         ChoiceD.setText("");
+            TriggerA = 1;
     }
-    public static void BattleB(Creature opponent){
+    public static void BattleB(){
+        if(TriggerB == 0) {
+            Ork = new EnemyConstructor(29, 3, (double) 3, "Ork");
+        }
         Event = "BattleB";
-        MainStory.setText("You face a " + opponent.getName() + ", \n what do you do?");
+        MainStory.setText("You face a " + Ork.getName() + ", \n what do you do?");
         ChoiceA.setText("Attack");
         ChoiceB.setText("Retreat");
         ChoiceC.setText("");
         ChoiceD.setText("");
+        TriggerB = 1;
     }
-    public static void BattleC(Creature opponent){
+    public static void BattleC(){
+        if(TriggerC == 0) {
+            Goblin = new EnemyConstructor(27, 4, (double) 4, "Goblin");
+        }
         Event = "BattleC";
-        MainStory.setText("You face a " + opponent.getName() + ", \n what do you do?");
+        MainStory.setText("You face a " + Goblin.getName() + ", \n what do you do?");
         ChoiceA.setText("Attack");
         ChoiceB.setText("Retreat");
         ChoiceC.setText("");
         ChoiceD.setText("");
+        TriggerC = 1;
     }
-    public static void BattleD(Creature opponent){
+    public static void BattleD(){
+        if(TriggerD == 0) {
+            Troll = new EnemyConstructor(40, 6, (double) 10, "Troll");
+        }
         Event = "BattleD";
-        MainStory.setText("You face a " + opponent.getName() + ", \n what do you do?");
+        MainStory.setText("You face a " + Troll.getName() + ", \n what do you do?");
         ChoiceA.setText("Attack");
         ChoiceB.setText("Retreat");
         ChoiceC.setText("");
         ChoiceD.setText("");
+        TriggerD = 1;
     }
-    public static void BattleE(Creature opponent){
+    public static void BattleE(){
+        if(TriggerE == 0) {
+            Dragon = new EnemyConstructor(55, 7, (double) 12, "Dragon");
+        }
         Event = "BattleE";
-        MainStory.setText("You face a " + opponent.getName() + ", \n what do you do?");
+        MainStory.setText("You face a " + Dragon.getName() + ", \n what do you do?");
         ChoiceA.setText("Attack");
         ChoiceB.setText("");
         ChoiceC.setText("");
         ChoiceD.setText("");
+        TriggerE = 1;
     }
 
 
@@ -235,44 +257,44 @@ public class Scenarios extends Main {
     // Player Attack Methods
     public static void AttackA(){
         Event = "Player_AttackA";
-        Attack( Witch);
+        Attack(Witch);
         MainStory.setText("You Strike the " + Witch.getName() + ", Enemy has "+ Witch.getHealth() + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
-    public static void AttackB(EnemyConstructor Enemy){
+    public static void AttackB(){
         Event = "Player_AttackB";
-        Attack(Enemy);
-        MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
+        Attack(Ork);
+        MainStory.setText("You Strike the " + Ork.getName() + ", Enemy has "+ Ork.getHealth() + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
-    public static void AttackC(EnemyConstructor Enemy){
+    public static void AttackC(){
         Event = "Player_AttackC";
-        Attack(Enemy);
-        MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
+        Attack(Goblin);
+        MainStory.setText("You Strike the " + Goblin.getName() + ", Enemy has "+ Goblin.getHealth() + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
-    public static void AttackD(EnemyConstructor Enemy){
+    public static void AttackD(){
         Event = "Player_AttackD";
-        Attack(Enemy);
-        MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
+        Attack(Troll);
+        MainStory.setText("You Strike the " + Troll.getName() + ", Enemy has "+ Troll.getHealth() + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
-    public static void AttackE(EnemyConstructor Enemy){
+    public static void AttackE(){
         Event = "Player_AttackE";
-        Attack(Enemy);
-        MainStory.setText("You Strike the " + Creature.getName() + ", Enemy has "+ Creature.getHealth() + "HP left.");
+        Attack(Dragon);
+        MainStory.setText("You Strike the " + Dragon.getName() + ", Enemy has "+ Dragon.getHealth() + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
         ChoiceC.setText("");
@@ -291,7 +313,7 @@ public class Scenarios extends Main {
         ChoiceD.setText("");
     }
     public static void EnemyAttackB(){
-        Creature.Attack(user);
+        CreatureAttack(Ork,user);
         Event = "Enemy_AttackB";
         MainStory.setText(Creature.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
         HPlabelUser.setText(String.valueOf(user.getHealth()));
@@ -301,7 +323,7 @@ public class Scenarios extends Main {
         ChoiceD.setText("");
     }
     public static void EnemyAttackC(){
-        Creature.Attack(user);
+        CreatureAttack(Goblin,user);
         Event = "Enemy_AttackC";
         MainStory.setText(Creature.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
         HPlabelUser.setText(String.valueOf(user.getHealth()));
@@ -311,7 +333,7 @@ public class Scenarios extends Main {
         ChoiceD.setText("");
     }
     public static void EnemyAttackD(){
-        Creature.Attack(user);
+        CreatureAttack(Troll,user);
         Event = "Enemy_AttackD";
         MainStory.setText(Creature.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
         HPlabelUser.setText(String.valueOf(user.getHealth()));
@@ -321,7 +343,7 @@ public class Scenarios extends Main {
         ChoiceD.setText("");
     }
     public static void EnemyAttackE(){
-        CreatureAttack(Witch,user);
+        CreatureAttack(Dragon,user);
         Event = "Enemy_AttackE";
         MainStory.setText(Creature.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
         HPlabelUser.setText(String.valueOf(user.getHealth()));
@@ -333,9 +355,10 @@ public class Scenarios extends Main {
 
 
 
-    public static void Attack(EnemyConstructor Enemey){
+    public static EnemyConstructor Attack(EnemyConstructor Enemey){
         double Damage = user.getAttackDamage();
         Enemey.setHealth(Enemey.getHealth() - Damage);
+        return Enemey;
 
     }
     public static void CreatureAttack(EnemyConstructor Enemey, Player User){

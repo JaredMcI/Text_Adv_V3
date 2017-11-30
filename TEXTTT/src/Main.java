@@ -17,8 +17,15 @@ public class Main extends JFrame {
     static JButton StartButton,ChoiceA,ChoiceB,ChoiceC,ChoiceD;
     static Player user;
     static Creature Opponent = new Creature();
+
     //Gameplay Variables
     static int use = 0;
+    static int TriggerA = 0;
+    static int TriggerB= 0;
+    static int TriggerC = 0;
+    static int TriggerD = 0;
+    static int TriggerE = 0;
+
     static Weapon Dagger = new Weapon(15,"Cutting",1.3,"Dagger");
     static Weapon Shard = new Weapon(3,"Cutting",0.1,"Shard");
     static Weapon Club = new Weapon(4,"Bludgeon",4.1,"Club");
@@ -28,11 +35,13 @@ public class Main extends JFrame {
 
 
     //Enemies in Game Generated
-    static EnemyConstructor Witch = new EnemyConstructor(22,2,Wand,"Witch");
-    static EnemyConstructor Ork = new EnemyConstructor(29,3,Shard,"Ork");
-    static EnemyConstructor Goblin = new EnemyConstructor(27,4,Club,"Goblin");
-    static EnemyConstructor Troll = new EnemyConstructor(40,6,Fist,"Troll");
-    static EnemyConstructor Dragon = new EnemyConstructor(55,7,Bite,"Dragon");
+    static EnemyConstructor Witch = new EnemyConstructor();
+    static EnemyConstructor Ork = new EnemyConstructor();
+    static EnemyConstructor Goblin = new EnemyConstructor();
+    static EnemyConstructor Troll = new EnemyConstructor();
+    static EnemyConstructor Dragon = new EnemyConstructor();
+
+
 
     //Stat Bar Labels
     JLabel HPlabel,ArmourLabel, StrengthLabel;
@@ -204,6 +213,8 @@ public class Main extends JFrame {
         StrengthLabelUser.setText(String.valueOf(user.getStrength()));
         WeaponLabelUser.setText(user.getWeapon().getName());
         CharismaLabelUser.setText(String.valueOf(user.getCharisma()));
+
+
     }
 
 
@@ -224,6 +235,7 @@ public class ChoiceHandler implements ActionListener {
             case "Homestead":
                 switch (Choice) {
                     case "CA":
+
                         Scenarios.TalkFool();
                         break;
                     case "CB":
@@ -310,7 +322,7 @@ public class ChoiceHandler implements ActionListener {
             case "Inner_Cave":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.BattleB(Opponent);
+                        Scenarios.BattleB();
                         break;
                     case "CB":
                         Scenarios.Cave();
@@ -394,7 +406,7 @@ public class ChoiceHandler implements ActionListener {
             case "Ravine":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.BattleC(Opponent);
+                        Scenarios.BattleC();
                         break;
                     case "CB":
                         Scenarios.MountainBase();
@@ -409,7 +421,7 @@ public class ChoiceHandler implements ActionListener {
             case "Caverns":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.BattleD(Opponent);
+                        Scenarios.BattleD();
                         break; // Attack +Health Boost
                     case "CB":
                         Scenarios.BurnedVillage();
@@ -436,7 +448,7 @@ public class ChoiceHandler implements ActionListener {
                 break;
             case "Talk_Troll_Bad":
                 switch (Choice) {
-                    case "CA": Scenarios.BattleD(Opponent);
+                    case "CA": Scenarios.BattleD();
                         break; // Attack +Health Boost
                     case "CB":
                         break;
@@ -465,7 +477,8 @@ public class ChoiceHandler implements ActionListener {
             case "Mountain":
                 switch (Choice) {
                     case "CA":
-                        break; // Attack
+                        Scenarios.BattleE();
+                        break;
                     case "CB":
                         break;
                     case "CC":
@@ -558,7 +571,7 @@ public class ChoiceHandler implements ActionListener {
                 case "Enemy_AttackB":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.BattleB(Opponent);
+                        Scenarios.BattleB();
                         break;
                     case "CB":
                         break;
@@ -571,7 +584,7 @@ public class ChoiceHandler implements ActionListener {
             case "Enemy_AttackC":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.BattleC(Opponent);
+                        Scenarios.BattleC();
                         break;
                     case "CB":
                         break;
@@ -584,7 +597,7 @@ public class ChoiceHandler implements ActionListener {
             case "Enemy_AttackD":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.BattleD(Opponent);
+                        Scenarios.BattleD();
                         break;
                     case "CB":
                         break;
@@ -597,7 +610,7 @@ public class ChoiceHandler implements ActionListener {
             case "Enemy_AttackE":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.BattleE(Opponent);
+                        Scenarios.BattleE();
                         break;
                     case "CB":
                         break;
@@ -625,7 +638,7 @@ public class ChoiceHandler implements ActionListener {
             case "BattleB":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.AttackB(Witch);
+                        Scenarios.AttackB();
                         break;
                     case "CB":
                         Scenarios.Cave();
@@ -639,7 +652,7 @@ public class ChoiceHandler implements ActionListener {
             case "BattleC":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.AttackC(Witch);
+                        Scenarios.AttackC();
                         break;
                     case "CB":
                         Scenarios.Ravine();
@@ -653,7 +666,7 @@ public class ChoiceHandler implements ActionListener {
             case "BattleD":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.AttackD(Witch);
+                        Scenarios.AttackD();
                         break;
                     case "CB":Scenarios.Caverns();
                         break;
@@ -666,7 +679,7 @@ public class ChoiceHandler implements ActionListener {
             case "BattleE":
                 switch (Choice) {
                     case "CA":
-                        Scenarios.AttackE(Witch);
+                        Scenarios.AttackE();
                         break;
                     case "CB":
                         break;
