@@ -20,18 +20,25 @@ public class Main extends JFrame {
 
     //Gameplay Variables
     static int use = 0;
+    // Health controls
     static int TriggerA = 0;
     static int TriggerB= 0;
     static int TriggerC = 0;
     static int TriggerD = 0;
     static int TriggerE = 0;
+    //Existence Controls
 
-    static Weapon Dagger = new Weapon(15,"Cutting",1.3,"Dagger");
-    static Weapon Shard = new Weapon(3,"Cutting",0.1,"Shard");
-    static Weapon Club = new Weapon(4,"Bludgeon",4.1,"Club");
-    static Weapon Fist = new Weapon(10,"Bludgeon",0.1,"Fist");
-    static Weapon Bite = new Weapon(12,"Piercing",5.1,"Bite");
-    static Weapon Wand = new Weapon(5,"Bludgeon",2.1,"Wand");
+    static boolean AliveA = true;
+    static boolean AliveB = true;
+    static boolean AliveC = true;
+    static boolean AliveD = true;
+    static boolean AliveE = true;
+   // static Weapon Dagger = new Weapon(15,"Cutting",1.3,"Dagger");
+   // static Weapon Shard = new Weapon(3,"Cutting",0.1,"Shard");
+   // static Weapon Club = new Weapon(4,"Bludgeon",4.1,"Club");
+   // static Weapon Fist = new Weapon(10,"Bludgeon",0.1,"Fist");
+   // static Weapon Bite = new Weapon(12,"Piercing",5.1,"Bite");
+   // static Weapon Wand = new Weapon(5,"Bludgeon",2.1,"Wand");
 
 
     //Enemies in Game Generated
@@ -207,7 +214,7 @@ public class Main extends JFrame {
     }
     public void CharectarCreation(){
         Weapon StartingWeapon = new Weapon(12,"Cutting",5.7,"Sword");
-        user = new Player(100, 3, 0.15, 8, "Piercing",Dagger , "Johnny",7, 1.45);
+        user = new Player(100, 3, 0.15, 8, "Piercing",StartingWeapon , "Johnny",7, 1.45);
         HPlabelUser.setText(String.valueOf(user.getHealth()));
         ArmourLabelUser.setText(String.valueOf(user.getArmour()));
         StrengthLabelUser.setText(String.valueOf(user.getStrength()));
@@ -680,6 +687,69 @@ public class ChoiceHandler implements ActionListener {
                 switch (Choice) {
                     case "CA":
                         Scenarios.AttackE();
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+//BATTLE SUCCESS HANDLERS
+            case "Battle_SuccessA":
+                switch (Choice) {
+                    case "CA":
+                        Weapon Spear = new Weapon(14,"Piercing",5.4,"Spear");
+                        user.setWeapon(Spear);
+                        WeaponLabelUser.setText(user.getWeapon().getName());
+                        Scenarios.Forest();
+                        break;
+                    case "CB":
+                        Scenarios.Forest();
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "Battle_SuccessB":
+                switch (Choice) {
+                    case "CA":
+                        user.setHealth(user.getHealth()+ 10);
+                        Scenarios.Cave();
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "Battle_SuccessC":
+                switch (Choice) {
+                    case "CA":
+                        Weapon Mace = new Weapon(12,"Bludgeon",7.4,"Mace");
+                        user.setWeapon(Mace);
+                        WeaponLabelUser.setText(user.getWeapon().getName());
+                        Scenarios.Ravine();
+                        break;
+                    case "CB":
+                        Scenarios.Ravine();
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }break;
+            case "Battle_SuccessD":
+                switch (Choice) {
+                    case "CA":
+                        user.setStrength(user.getStrength()+ 2);
+                        StrengthLabelUser.setText(String.valueOf(user.getStrength()));
+                        Scenarios.Caverns();
                         break;
                     case "CB":
                         break;

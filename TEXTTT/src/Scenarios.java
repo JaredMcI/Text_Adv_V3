@@ -146,7 +146,8 @@ public class Scenarios extends Main {
             use = 1;
             MainStory.setText("The air is cold, you feel alive, +10hp");
             HPlabelUser.setText(String.valueOf(user.getHealth()));
-        } else {
+        }
+        else {
             MainStory.setText("\"I should really be moving on\"");
         }
         ChoiceA.setText("Go Back");
@@ -158,6 +159,7 @@ public class Scenarios extends Main {
     public static void PickObject() {
         Event = "Plains_Dagger";
         MainStory.setText("You have found Dagger on the ground");
+        Weapon Dagger = new Weapon(15,"Cutting",1.3,"Dagger");
         user.setWeapon(Dagger);
         WeaponLabelUser.setText(user.getWeapon().getName());
         ChoiceA.setText("Go Back");
@@ -195,6 +197,12 @@ public class Scenarios extends Main {
         if(TriggerA == 0) {
             Witch = new EnemyConstructor(22, 2, (double) 5, "Witch");
         }
+        if(Witch.getHealth() < 1)
+        {
+            AliveA=false;
+            BattleSuccessA();
+        }
+        else{
         Event = "BattleA";
         MainStory.setText("You face a " + Witch.getName() + ", \n what do you do?");
         ChoiceA.setText("Attack");
@@ -202,11 +210,17 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
             TriggerA = 1;
-    }
+    }}
     public static void BattleB(){
         if(TriggerB == 0) {
             Ork = new EnemyConstructor(29, 3, (double) 3, "Ork");
         }
+        if(Ork.getHealth() < 1)
+        {
+            AliveB=false;
+            BattleSuccessB();
+        }
+        else{
         Event = "BattleB";
         MainStory.setText("You face a " + Ork.getName() + ", \n what do you do?");
         ChoiceA.setText("Attack");
@@ -214,11 +228,17 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
         TriggerB = 1;
-    }
+    }}
     public static void BattleC(){
         if(TriggerC == 0) {
             Goblin = new EnemyConstructor(27, 4, (double) 4, "Goblin");
         }
+        if(Goblin.getHealth() < 1)
+        {
+            AliveC=false;
+            BattleSuccessC();
+        }
+        else{
         Event = "BattleC";
         MainStory.setText("You face a " + Goblin.getName() + ", \n what do you do?");
         ChoiceA.setText("Attack");
@@ -226,11 +246,17 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
         TriggerC = 1;
-    }
+    }}
     public static void BattleD(){
         if(TriggerD == 0) {
             Troll = new EnemyConstructor(40, 6, (double) 10, "Troll");
         }
+        if(Troll.getHealth() < 1)
+        {
+            AliveD=false;
+            BattleSuccessD();
+        }
+        else{
         Event = "BattleD";
         MainStory.setText("You face a " + Troll.getName() + ", \n what do you do?");
         ChoiceA.setText("Attack");
@@ -238,11 +264,12 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
         TriggerD = 1;
-    }
+    }}
     public static void BattleE(){
         if(TriggerE == 0) {
             Dragon = new EnemyConstructor(55, 7, (double) 12, "Dragon");
         }
+        else{
         Event = "BattleE";
         MainStory.setText("You face a " + Dragon.getName() + ", \n what do you do?");
         ChoiceA.setText("Attack");
@@ -250,7 +277,7 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
         TriggerE = 1;
-    }
+    }}
 
 
 
@@ -325,7 +352,7 @@ public class Scenarios extends Main {
     public static void EnemyAttackC(){
         CreatureAttack(Goblin,user);
         Event = "Enemy_AttackC";
-        MainStory.setText(Creature.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
+        MainStory.setText(Goblin.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
         HPlabelUser.setText(String.valueOf(user.getHealth()));
         ChoiceA.setText("Next");
         ChoiceB.setText("");
@@ -335,7 +362,7 @@ public class Scenarios extends Main {
     public static void EnemyAttackD(){
         CreatureAttack(Troll,user);
         Event = "Enemy_AttackD";
-        MainStory.setText(Creature.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
+        MainStory.setText(Troll.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
         HPlabelUser.setText(String.valueOf(user.getHealth()));
         ChoiceA.setText("Next");
         ChoiceB.setText("");
@@ -345,13 +372,46 @@ public class Scenarios extends Main {
     public static void EnemyAttackE(){
         CreatureAttack(Dragon,user);
         Event = "Enemy_AttackE";
-        MainStory.setText(Creature.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
+        MainStory.setText(Dragon.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
         HPlabelUser.setText(String.valueOf(user.getHealth()));
         ChoiceA.setText("Next");
         ChoiceB.setText("");
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
+    public static void BattleSuccessA(){
+        Event = "Battle_SuccessA";
+        MainStory.setText("The Witch has been slain\n She dropped a spear,\n what do you do?");
+        ChoiceA.setText("Take it and Leave");
+        ChoiceB.setText("Leave");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void BattleSuccessB(){
+        Event = "Battle_SuccessB";
+        MainStory.setText("The Ork has been slain\n He dropped a strange looking bottle,\n you drink it. +10HP");
+        ChoiceA.setText("Leave");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void BattleSuccessC(){
+        Event = "Battle_SuccessC";
+        MainStory.setText("The Goblin has been slain\n He dropped a Mace,\n what do you do?");
+        ChoiceA.setText("Take it and Leave");
+        ChoiceB.setText("Leave");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void BattleSuccessD(){
+        Event = "Battle_SuccessD";
+        MainStory.setText("The Troll has been slain\n He dropped a Flask,\n You drink it. + 2 strength");
+        ChoiceA.setText("Leave");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+
 
 
 
