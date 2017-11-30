@@ -140,7 +140,7 @@ public class Scenarios extends Main {
     }
 
     public static void DeepBreath() {
-        Event = "Deep_Breathe";
+        Event = "Deep_Breath";
         if (use == 0) {
             user.setHealth(user.getHealth() + 10);
             MainStory.setText("The air is cold, you feel alive, +10hp");
@@ -194,14 +194,14 @@ public class Scenarios extends Main {
     public static void BattleA(){
 
         if(TriggerA == 0) {
-            Witch = new EnemyConstructor(22, 2, (double) 5, "Witch");
+            Witch = new EnemyConstructor(22, 2, (double) 5, "Witch", "Bludgeon");
         }
         if(Witch.getHealth() < 0)
         {
             AliveA=false;
             BattleSuccessA();
         }
-        if(user.getHealth() < 0){
+        else if(user.getHealth() < 0){
             lose();
         }
 
@@ -216,14 +216,14 @@ public class Scenarios extends Main {
     }}
     public static void BattleB(){
         if(TriggerB == 0) {
-            Ork = new EnemyConstructor(29, 3, (double) 3, "Ork");
+            Ork = new EnemyConstructor(29, 3, (double) 3, "Ork", "Bludgeon");
         }
         if(Ork.getHealth() < 1)
         {
             AliveB=false;
             BattleSuccessB();
         }
-        if(user.getHealth() < 0){
+        else if(user.getHealth() < 0){
             lose();
         }
         else{
@@ -237,14 +237,14 @@ public class Scenarios extends Main {
     }}
     public static void BattleC(){
         if(TriggerC == 0) {
-            Goblin = new EnemyConstructor(27, 4, (double) 4, "Goblin");
+            Goblin = new EnemyConstructor(27, 4, (double) 4, "Goblin", "Cutting");
         }
         if(Goblin.getHealth() < 1)
         {
             AliveC=false;
             BattleSuccessC();
         }
-        if(user.getHealth() < 0){
+        else if(user.getHealth() < 0){
             lose();
         }
         else{
@@ -258,7 +258,7 @@ public class Scenarios extends Main {
     }}
     public static void BattleD(){
         if(TriggerD == 0) {
-            Troll = new EnemyConstructor(40, 6, (double) 10, "Troll");
+            Troll = new EnemyConstructor(40, 6, (double) 10, "Troll" , "Piercing");
         }
         if(Troll.getHealth() < 1)
         {
@@ -279,12 +279,7 @@ public class Scenarios extends Main {
     }}
     public static void BattleE(){
         if(TriggerE == 0) {
-            Dragon = new EnemyConstructor(55, 7, (double) 12, "Dragon");
-        }
-        if(Dragon.getHealth() < 0)
-        {
-            AliveE=false;
-            win();
+            Dragon = new EnemyConstructor(55, 7, (double) 12, "Dragon", "Bludgeon");
         }
         if(user.getHealth() < 0){
             lose();
@@ -305,7 +300,7 @@ public class Scenarios extends Main {
     public static void AttackA(){
         Event = "Player_AttackA";
         Attack(Witch);
-        MainStory.setText("You Strike the " + Witch.getName() + ", Enemy has "+ Witch.getHealth() + "HP left.");
+        MainStory.setText("You Strike the " + Witch.getName() + ", Enemy has "+ String.format("%.2f",Witch.getHealth()) + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
         ChoiceC.setText("");
@@ -362,7 +357,7 @@ public class Scenarios extends Main {
     public static void EnemyAttackB(){
         CreatureAttack(Ork,user);
         Event = "Enemy_AttackB";
-        MainStory.setText(Creature.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
+        MainStory.setText(Ork.getName() + " strikes you,\n You have "+ user.getHealth() + "HP left.");
         HPlabelUser.setText(String.valueOf(user.getHealth()));
         ChoiceA.setText("Next");
         ChoiceB.setText("");
@@ -455,14 +450,19 @@ public class Scenarios extends Main {
 
 
     public static EnemyConstructor Attack(EnemyConstructor Enemey){
-        double Damage = user.getAttackDamage();
+        double Multiplier = 0;
+        Multiplier += user.getHeight() * (user.getAttackDamage()/12);
+        Multiplier += user.getWeapon().getWeight()*(user.getAttackDamage()/18);
+        Multiplier += (user.getStrength()/115)* user.getAttackDamage();
+        double Damage = user.getAttackDamage()*Multiplier;
         Enemey.setHealth(Enemey.getHealth() - Damage);
         return Enemey;
 
     }
     public static void CreatureAttack(EnemyConstructor Enemey, Player User){
-        User.setHealth(User.getHealth() - Enemey.getAttackDamage());
-
-
+        double Multiplier = 0;
+        Multiplier += Enemey.getStrength()*(Enemey.getAttackDamage()/2);
+        double Damage = Enemey.getAttackDamage()*Multiplier;
+        User.setHealth(User.getHealth() - Damage);
 }}
 

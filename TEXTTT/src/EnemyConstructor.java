@@ -6,9 +6,13 @@ public class EnemyConstructor {
     //private static Weapon weapon;
     private static String name;
     private static double AttackDamage;
+    private static String Vulnerability;
 
     public static double getHealth() { return Health; }
     public static void setHealth(double health) { Health = health; }
+
+    public static void setVulnerability(String vulnerability) { Vulnerability = vulnerability; }
+    public static String getVulnerability() { return Vulnerability; }
 
     public static void setAttackDamage(double attackDamage) { AttackDamage = attackDamage; }
     public static double getAttackDamage() { return AttackDamage; }
@@ -28,12 +32,13 @@ public class EnemyConstructor {
         //setWeapon(weapon);
         setStrength(0);
     }
-    public EnemyConstructor(double health, int strength,Double damage, String name){
+    public EnemyConstructor(double health, int strength,Double damage, String name, String vulnerability){
         setName(name);
         setHealth(health);
         //setWeapon(weapon);
         setStrength(strength);
         setAttackDamage(damage);
+        setVulnerability(vulnerability);
 
 
     }

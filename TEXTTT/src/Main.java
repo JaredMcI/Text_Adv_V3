@@ -685,6 +685,11 @@ public class ChoiceHandler implements ActionListener {
             case "BattleE":
                 switch (Choice) {
                     case "CA":
+                        if(Dragon.getHealth() < 1)
+                        {
+                            Scenarios.win();
+                        }
+                        else
                         Scenarios.AttackE();
                         break;
                     case "CB":
@@ -774,7 +779,6 @@ public class ChoiceHandler implements ActionListener {
             case "win":
                 switch (Choice) {
                     case "CA":
-                        new Main();
                         break;
                     case "CB":
                         break;
