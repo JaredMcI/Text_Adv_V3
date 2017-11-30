@@ -2,13 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 
 public class Main extends JFrame {
-   static JFrame Window;
+   static JFrame Window, WindowB;
     static Font TitleFont = new Font ("Times New Roman", Font.PLAIN, 90);
     static Font ButtonFont = new Font("Timers New Roman", Font.PLAIN, 30);
     static Font StatFont = new Font("Times New Roman", Font.PLAIN, 15);
-    static Container cont;
+    static Container cont, contB;
     static String Event;
     static JTextArea MainStory;
     TitleScreenHandler TitleScreenHandler = new TitleScreenHandler();
@@ -17,6 +19,7 @@ public class Main extends JFrame {
     static JButton StartButton,ChoiceA,ChoiceB,ChoiceC,ChoiceD;
     static Player user;
     static Creature Opponent = new Creature();
+    JLabel BackGround;
 
     //Gameplay Variables
     static int use = 0;
@@ -27,7 +30,6 @@ public class Main extends JFrame {
     static int TriggerD = 0;
     static int TriggerE = 0;
     //Existence Controls
-
     static boolean AliveA = true;
     static boolean AliveB = true;
     static boolean AliveC = true;
@@ -64,7 +66,8 @@ public class Main extends JFrame {
         new Main();
     }
 
-    public Main(){
+    public Main(){ //GUI build and use of action Command to control switch statements was done after watching RYISNOWS youtube videos,
+        //Never used this technique before, however it worked muc better than my original GUI.
 
         Window = new JFrame();
         Window.setSize(800,600);
@@ -107,6 +110,8 @@ public class Main extends JFrame {
         cont.add(TextPanel);
 
         MainStory = new JTextArea("Insert Story");
+
+
         MainStory.setEditable(false);
         MainStory.setBounds(100,100,600,250);
         MainStory.setBackground(Color.BLACK);
@@ -116,7 +121,7 @@ public class Main extends JFrame {
         TextPanel.add(MainStory);
 
         StoryButtonPanel = new JPanel();
-        StoryButtonPanel.setBounds(100,350,600,75);
+        StoryButtonPanel.setBounds(0,475,800,75);
         StoryButtonPanel.setBackground(Color.black);
         GridLayout GridLayout = new GridLayout(0,4);
         StoryButtonPanel.setLayout(GridLayout);
@@ -209,12 +214,12 @@ public class Main extends JFrame {
         CharismaLabelUser.setForeground(Color.WHITE);
         UserStatPanel.add(CharismaLabelUser);
 
-        CharectarCreation();
-        Scenarios.HomeStead();
+        //CharectarCreation();
+        Scenarios.Charectar();
     }
     public void CharectarCreation(){
         Weapon StartingWeapon = new Weapon(12,"Cutting",5.7,"Sword");
-        user = new Player(100, 3, 0.15, 8, "Piercing",StartingWeapon , "Johnny",7, 1.45);
+        user = new Player(250, 3, 0.15, 8, StartingWeapon , "Johnny",7, 1.45);
         HPlabelUser.setText(String.valueOf(user.getHealth()));
         ArmourLabelUser.setText(String.valueOf(user.getArmour()));
         StrengthLabelUser.setText(String.valueOf(user.getStrength()));
@@ -242,7 +247,6 @@ public class ChoiceHandler implements ActionListener {
             case "Homestead":
                 switch (Choice) {
                     case "CA":
-
                         Scenarios.TalkFool();
                         break;
                     case "CB":
@@ -299,6 +303,8 @@ public class ChoiceHandler implements ActionListener {
             case "Forest":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.BattleA();
                         break;
                     case "CB":
@@ -329,6 +335,8 @@ public class ChoiceHandler implements ActionListener {
             case "Inner_Cave":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                    catch (Exception f) {f.printStackTrace();}
                         Scenarios.BattleB();
                         break;
                     case "CB":
@@ -427,6 +435,8 @@ public class ChoiceHandler implements ActionListener {
             case "Caverns":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.BattleD();
                         break; // Attack +Health Boost
                     case "CB":
@@ -454,7 +464,10 @@ public class ChoiceHandler implements ActionListener {
                 break;
             case "Troll_Conversation_Bad":
                 switch (Choice) {
-                    case "CA": Scenarios.BattleD();
+                    case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
+                        Scenarios.BattleD();
                         break;
                     case "CB":
                         break;
@@ -483,6 +496,8 @@ public class ChoiceHandler implements ActionListener {
             case "Mountain":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.BattleE();
                         break;
                     case "CB":
@@ -498,6 +513,8 @@ public class ChoiceHandler implements ActionListener {
             case "Player_AttackA":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.EnemyAttackA();
                         break;
                     case "CB":
@@ -511,6 +528,8 @@ public class ChoiceHandler implements ActionListener {
             case "Player_AttackB":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.EnemyAttackB();
                         break;
                     case "CB":
@@ -524,6 +543,8 @@ public class ChoiceHandler implements ActionListener {
             case "Player_AttackC":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.EnemyAttackC();
                         break;
                     case "CB":
@@ -537,6 +558,8 @@ public class ChoiceHandler implements ActionListener {
             case "Player_AttackD":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.EnemyAttackD();
                         break;
                     case "CB":
@@ -550,6 +573,8 @@ public class ChoiceHandler implements ActionListener {
             case "Player_AttackE":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.EnemyAttackE();
                         break;
                     case "CB":
@@ -564,6 +589,8 @@ public class ChoiceHandler implements ActionListener {
             case "Enemy_AttackA":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.BattleA();
                         break;
                     case "CB":
@@ -577,6 +604,8 @@ public class ChoiceHandler implements ActionListener {
                 case "Enemy_AttackB":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.BattleB();
                         break;
                     case "CB":
@@ -590,6 +619,8 @@ public class ChoiceHandler implements ActionListener {
             case "Enemy_AttackC":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.BattleC();
                         break;
                     case "CB":
@@ -603,6 +634,8 @@ public class ChoiceHandler implements ActionListener {
             case "Enemy_AttackD":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.BattleD();
                         break;
                     case "CB":
@@ -616,6 +649,8 @@ public class ChoiceHandler implements ActionListener {
             case "Enemy_AttackE":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.AttackSound("audio/Attack.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.BattleE();
                         break;
                     case "CB":
@@ -788,6 +823,46 @@ public class ChoiceHandler implements ActionListener {
                         break;
                 }
                 break;
+
+                // Start Screen
+            case "Charectar":
+                switch (Choice) {
+                    case "CA":
+                        Weapon StartingWeapon = new Weapon(12,"Cutting",5.7,"Sword");
+                        user = new Player(200, 7, 0.10, 5, StartingWeapon , "Thief",6, 1.45);
+                        HPlabelUser.setText(String.valueOf(user.getHealth()));
+                        ArmourLabelUser.setText(String.valueOf(user.getArmour()));
+                        StrengthLabelUser.setText(String.valueOf(user.getStrength()));
+                        WeaponLabelUser.setText(user.getWeapon().getName());
+                        CharismaLabelUser.setText(String.valueOf(user.getCharisma()));
+                        Scenarios.HomeStead();
+                        break;
+                    case "CB":
+                        StartingWeapon = new Weapon(12, "Cutting", 5.7, "Sword");
+                        user = new Player(230, 3, 0.15, 8, StartingWeapon , "Farmer",8, 1.85);
+                        HPlabelUser.setText(String.valueOf(user.getHealth()));
+                        ArmourLabelUser.setText(String.valueOf(user.getArmour()));
+                        StrengthLabelUser.setText(String.valueOf(user.getStrength()));
+                        WeaponLabelUser.setText(user.getWeapon().getName());
+                        CharismaLabelUser.setText(String.valueOf(user.getCharisma()));
+                        Scenarios.HomeStead();
+                        break;
+                    case "CC":
+                        StartingWeapon = new Weapon(12,"Cutting",5.7,"Sword");
+                        user = new Player(250, 2, 0.25, 6, StartingWeapon , "Soldier",7, 1.9);
+                        HPlabelUser.setText(String.valueOf(user.getHealth()));
+                        ArmourLabelUser.setText(String.valueOf(user.getArmour()));
+                        StrengthLabelUser.setText(String.valueOf(user.getStrength()));
+                        WeaponLabelUser.setText(user.getWeapon().getName());
+                        CharismaLabelUser.setText(String.valueOf(user.getCharisma()));
+                        Scenarios.HomeStead();
+                        break;
+                    case "CD":
+                        System.exit(0);
+                        break;
+                }
+                break;
+
 
 
 

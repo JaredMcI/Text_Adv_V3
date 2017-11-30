@@ -1,5 +1,14 @@
 public class Scenarios extends Main {
 
+    public static void Charectar() {
+        Event = "Charectar";
+        MainStory.setText("Thief\nFarmer\nSoldier\nwho are you?");
+        ChoiceA.setText("Thief");
+        ChoiceB.setText("Farmer");
+        ChoiceC.setText("Soldier");
+        ChoiceD.setText("Quit");
+    }
+
 
     public static void HomeStead() {
         Event = "Homestead";
@@ -12,7 +21,7 @@ public class Scenarios extends Main {
 
     public static void Forest() {
         Event = "Forest";
-        MainStory.setText("You enter a dark forest,A field of mist surrounds the area, There is a cackling witch in the distance, what do you do?");
+        MainStory.setText("You enter a dark forest,A field of mist \nsurrounds the area, There is a cackling witch in the distance, what do you do?");
         ChoiceA.setText("Attack the witch");
         ChoiceB.setText("Head to the Burned Village");
         ChoiceC.setText("Head to the Cave");
@@ -30,7 +39,7 @@ public class Scenarios extends Main {
 
     public static void Cave() {
         Event = "Cave";
-        MainStory.setText("A large cave blocks the path, you can hear shuffling inside,\n what do you do? ");
+        MainStory.setText("A large cave blocks the path, \nyou can hear shuffling inside,\n what do you do? ");
         ChoiceA.setText("Enter the cave");
         ChoiceB.setText("leave, Head to the Caverns");
         ChoiceC.setText("Retreat to the Forest");
@@ -48,7 +57,7 @@ public class Scenarios extends Main {
 
     public static void BurnedVillage() {
         Event = "Burned_Village";
-        MainStory.setText("You enter a recently torched village< a screaming stranger approaches\n what do you do? ");
+        MainStory.setText("You enter a recently torched \nvillage a screaming stranger approaches\n what do you do? ");
         ChoiceA.setText("Head to the cave");
         ChoiceB.setText(" Head to the Caverns");
         ChoiceC.setText("Head to the Ravine");
@@ -194,7 +203,7 @@ public class Scenarios extends Main {
     public static void BattleA(){
 
         if(TriggerA == 0) {
-            Witch = new EnemyConstructor(22, 2, (double) 5, "Witch", "Bludgeon");
+            Witch = new EnemyConstructor(130, 2, (double) 5, "Witch", "Bludgeon");
         }
         if(Witch.getHealth() < 0)
         {
@@ -216,7 +225,7 @@ public class Scenarios extends Main {
     }}
     public static void BattleB(){
         if(TriggerB == 0) {
-            Ork = new EnemyConstructor(29, 3, (double) 3, "Ork", "Bludgeon");
+            Ork = new EnemyConstructor(140, 3, (double) 3, "Orc", "Bludgeon");
         }
         if(Ork.getHealth() < 1)
         {
@@ -237,7 +246,7 @@ public class Scenarios extends Main {
     }}
     public static void BattleC(){
         if(TriggerC == 0) {
-            Goblin = new EnemyConstructor(27, 4, (double) 4, "Goblin", "Cutting");
+            Goblin = new EnemyConstructor(150, 4, (double) 3, "Goblin", "Cutting");
         }
         if(Goblin.getHealth() < 1)
         {
@@ -258,7 +267,7 @@ public class Scenarios extends Main {
     }}
     public static void BattleD(){
         if(TriggerD == 0) {
-            Troll = new EnemyConstructor(40, 6, (double) 10, "Troll" , "Piercing");
+            Troll = new EnemyConstructor(160, 6, (double) 4, "Troll" , "Piercing");
         }
         if(Troll.getHealth() < 1)
         {
@@ -279,7 +288,7 @@ public class Scenarios extends Main {
     }}
     public static void BattleE(){
         if(TriggerE == 0) {
-            Dragon = new EnemyConstructor(55, 7, (double) 12, "Dragon", "Bludgeon");
+            Dragon = new EnemyConstructor(240, 5, (double) 8, "Dragon", "Bludgeon");
         }
         if(user.getHealth() < 0){
             lose();
@@ -300,7 +309,7 @@ public class Scenarios extends Main {
     public static void AttackA(){
         Event = "Player_AttackA";
         Attack(Witch);
-        MainStory.setText("You Strike the " + Witch.getName() + ", Enemy has "+ String.format("%.2f",Witch.getHealth()) + "HP left.");
+        MainStory.setText("You Strike the " + Witch.getName() + ",\n Enemy has "+ String.format("%.2f",Witch.getHealth()) + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
         ChoiceC.setText("");
@@ -309,7 +318,7 @@ public class Scenarios extends Main {
     public static void AttackB(){
         Event = "Player_AttackB";
         Attack(Ork);
-        MainStory.setText("You Strike the " + Ork.getName() + ", Enemy has "+ Ork.getHealth() + "HP left.");
+        MainStory.setText("You Strike the " + Ork.getName() + ",\n Enemy has "+ String.format("%.2f",Ork.getHealth()) + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
         ChoiceC.setText("");
@@ -318,7 +327,7 @@ public class Scenarios extends Main {
     public static void AttackC(){
         Event = "Player_AttackC";
         Attack(Goblin);
-        MainStory.setText("You Strike the " + Goblin.getName() + ", Enemy has "+ Goblin.getHealth() + "HP left.");
+        MainStory.setText("You Strike the " + Goblin.getName() + ",\n Enemy has "+ String.format("%.2f",Goblin.getHealth()) + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
         ChoiceC.setText("");
@@ -327,7 +336,7 @@ public class Scenarios extends Main {
     public static void AttackD(){
         Event = "Player_AttackD";
         Attack(Troll);
-        MainStory.setText("You Strike the " + Troll.getName() + ", Enemy has "+ Troll.getHealth() + "HP left.");
+        MainStory.setText("You Strike the " + Troll.getName() + ",\n Enemy has "+ String.format("%.2f",Troll.getHealth()) + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
         ChoiceC.setText("");
@@ -336,7 +345,7 @@ public class Scenarios extends Main {
     public static void AttackE(){
         Event = "Player_AttackE";
         Attack(Dragon);
-        MainStory.setText("You Strike the " + Dragon.getName() + ", Enemy has "+ Dragon.getHealth() + "HP left.");
+        MainStory.setText("You Strike the " + Dragon.getName() + ",\n Enemy has "+ String.format("%.2f",Dragon.getHealth()) + "HP left.");
         ChoiceA.setText("Next");
         ChoiceB.setText("");
         ChoiceC.setText("");
@@ -454,6 +463,9 @@ public class Scenarios extends Main {
         Multiplier += user.getHeight() * (user.getAttackDamage()/12);
         Multiplier += user.getWeapon().getWeight()*(user.getAttackDamage()/18);
         Multiplier += (user.getStrength()/115)* user.getAttackDamage();
+        if(user.getWeapon().getDamage_Type() == Enemey.getVulnerability()){
+            Multiplier+= 0.25;
+        }
         double Damage = user.getAttackDamage()*Multiplier;
         Enemey.setHealth(Enemey.getHealth() - Damage);
         return Enemey;

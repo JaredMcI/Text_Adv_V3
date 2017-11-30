@@ -10,7 +10,6 @@ public class Player{
     private static int Intelligence;
     private static double Armour;
     private static int Strength;
-    private static String Vulnerability;
     private static Weapon weapon;
     private static String name;
     private static double AttackDamage;
@@ -20,7 +19,6 @@ public class Player{
     public void setIntelligence(int intelligence) { Intelligence = intelligence; }
     public static void setArmour(double armour) { Armour = armour; }
     public void setStrength(int strength) { Strength = strength; }
-    public void setVulnerability(String vulnerability) { Vulnerability = vulnerability; }
     public static void setWeapon(Weapon Item) { weapon = Item; }
     public static void setName(String name) { name = name; }
     public static void setAttackDamage(double attackDamage) { AttackDamage = attackDamage; }
@@ -30,7 +28,6 @@ public class Player{
     public static int getIntelligence() { return Intelligence; }
     public static double getArmour() { return Armour; }
     public static int getStrength() { return Strength; }
-    public static String getVulnerability() { return Vulnerability; }
     public static Weapon getWeapon() { return weapon; }
     public static String getName() { return name; }
     public static double getAttackDamage() { return AttackDamage; }
@@ -50,14 +47,13 @@ public class Player{
 //        this.height = height;
 //    }
 
-    public Player(double Health, int Intelligence, double Armour, int Strength, String Vulnerability, Weapon Strike, String name, int charisma, double height) {
+    public Player(double Health, int Intelligence, double Armour, int Strength, Weapon Strike, String name, int charisma, double height) {
         Charisma = charisma;
         this.height = height;
         setHealth(Health);
         setIntelligence(Intelligence);
         setArmour(Armour);
         setStrength(Strength);
-        setVulnerability(Vulnerability);
         setWeapon(Strike);
         setName(name);
         setAttackDamage(Strike.getDamage());
