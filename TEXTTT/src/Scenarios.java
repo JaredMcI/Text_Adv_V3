@@ -143,10 +143,9 @@ public class Scenarios extends Main {
         Event = "Deep_Breathe";
         if (use == 0) {
             user.setHealth(user.getHealth() + 10);
-            use = 1;
             MainStory.setText("The air is cold, you feel alive, +10hp");
             HPlabelUser.setText(String.valueOf(user.getHealth()));
-        }
+            use = 1;}
         else {
             MainStory.setText("\"I should really be moving on\"");
         }
@@ -197,11 +196,15 @@ public class Scenarios extends Main {
         if(TriggerA == 0) {
             Witch = new EnemyConstructor(22, 2, (double) 5, "Witch");
         }
-        if(Witch.getHealth() < 1)
+        if(Witch.getHealth() < 0)
         {
             AliveA=false;
             BattleSuccessA();
         }
+        if(user.getHealth() < 0){
+            lose();
+        }
+
         else{
         Event = "BattleA";
         MainStory.setText("You face a " + Witch.getName() + ", \n what do you do?");
@@ -219,6 +222,9 @@ public class Scenarios extends Main {
         {
             AliveB=false;
             BattleSuccessB();
+        }
+        if(user.getHealth() < 0){
+            lose();
         }
         else{
         Event = "BattleB";
@@ -238,6 +244,9 @@ public class Scenarios extends Main {
             AliveC=false;
             BattleSuccessC();
         }
+        if(user.getHealth() < 0){
+            lose();
+        }
         else{
         Event = "BattleC";
         MainStory.setText("You face a " + Goblin.getName() + ", \n what do you do?");
@@ -256,6 +265,9 @@ public class Scenarios extends Main {
             AliveD=false;
             BattleSuccessD();
         }
+        if(user.getHealth() < 0){
+            lose();
+        }
         else{
         Event = "BattleD";
         MainStory.setText("You face a " + Troll.getName() + ", \n what do you do?");
@@ -268,6 +280,14 @@ public class Scenarios extends Main {
     public static void BattleE(){
         if(TriggerE == 0) {
             Dragon = new EnemyConstructor(55, 7, (double) 12, "Dragon");
+        }
+        if(Dragon.getHealth() < 0)
+        {
+            AliveE=false;
+            win();
+        }
+        if(user.getHealth() < 0){
+            lose();
         }
         else{
         Event = "BattleE";
@@ -411,6 +431,25 @@ public class Scenarios extends Main {
         ChoiceC.setText("");
         ChoiceD.setText("");
     }
+
+    public static void lose(){
+        Event = "lose";
+        MainStory.setText("You have been killed.\n Better luck next time.");
+        ChoiceA.setText("Next");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+    public static void win(){
+        Event = "win";
+        MainStory.setText("You have beaten the boss.\n Congrats on winning.");
+        ChoiceA.setText("Next");
+        ChoiceB.setText("");
+        ChoiceC.setText("");
+        ChoiceD.setText("");
+    }
+
+
 
 
 

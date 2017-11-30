@@ -399,8 +399,7 @@ public class ChoiceHandler implements ActionListener {
 
             case "Deep_Breath":
                 switch (Choice) {
-                    case "CA":
-                        Scenarios.OpenPlains();
+                    case "CA": Scenarios.OpenPlains();
                         break;
                     case "CB":
                         break;
@@ -453,10 +452,10 @@ public class ChoiceHandler implements ActionListener {
                         break;
                 }
                 break;
-            case "Talk_Troll_Bad":
+            case "Troll_Conversation_Bad":
                 switch (Choice) {
                     case "CA": Scenarios.BattleD();
-                        break; // Attack +Health Boost
+                        break;
                     case "CB":
                         break;
                     case "CC":
@@ -759,6 +758,34 @@ public class ChoiceHandler implements ActionListener {
                         break;
                 }
                 break;
+            case "lose":
+                switch (Choice) {
+                    case "CA":
+                       new Main();
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+            case "win":
+                switch (Choice) {
+                    case "CA":
+                        new Main();
+                        break;
+                    case "CB":
+                        break;
+                    case "CC":
+                        break;
+                    case "CD":
+                        break;
+                }
+                break;
+
+
 
 
 
