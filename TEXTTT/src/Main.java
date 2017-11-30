@@ -80,7 +80,7 @@ public class Main extends JFrame {
         TitlePanel = new JPanel();
         TitlePanel.setBounds(100,150,600,150);
         TitlePanel.setBackground(Color.BLACK);
-        JLabel Title = new JLabel("WELCOME");
+        JLabel Title = new JLabel("Savior");
         Title.setFont(TitleFont);
         Title.setForeground(Color.white);
         TitlePanel.add(Title);
@@ -383,6 +383,8 @@ public class ChoiceHandler implements ActionListener {
                         Scenarios.Caverns();
                         break;
                     case "CB":
+                        try{GameAudio.BoostSound("audio/Boost.wav");}
+                        catch (Exception f) {f.printStackTrace();}
                         Scenarios.DeepBreath();
                         break;
                     case "CC":
@@ -452,9 +454,16 @@ public class ChoiceHandler implements ActionListener {
             case "Talk_Troll":
                 switch (Choice) {
                     case "CA":
+                        try{GameAudio.BoostSound("audio/Boost.wav");}
+                        catch (Exception f) {f.printStackTrace();}
+                        user.setStrength(user.getStrength()+2);
                         Scenarios.MountainBase();
                         break;
                     case "CB":
+                        try{GameAudio.BoostSound("audio/Boost.wav");}
+                        catch (Exception f) {f.printStackTrace();}
+                        user.setStrength(user.getStrength()+2);
+                        Scenarios.MountainBase();
                         break;
                     case "CC":
                         break;

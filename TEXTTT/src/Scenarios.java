@@ -134,6 +134,8 @@ public class Scenarios extends Main {
     public static void TalkMadMan() {
         Event = "Mad_Man_Conversation";
         if (user.getCharisma() > 5) {
+            try{GameAudio.TingSound("audio/Ting.wav");}
+            catch (Exception f) {f.printStackTrace();}
             MainStory.setText("The ting goes skrrrahh, pap, pap, ka-ka-ka. \n" +
                     "Skibiki-pap-pap, and a \npu-pu-pudrrrr-boom. Skya, \ndu-du-ku-ku-dun-dun. Poom, \npoom");
         } else if (user.getCharisma() > 7 && user.getIntelligence() > 6) {
