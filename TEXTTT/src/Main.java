@@ -65,7 +65,7 @@ public class Main extends JFrame {
 
         new Main();
     }
-
+/**This Method the STart Screen**/
     public Main(){ //GUI build and use of action Command to control switch statements was done after watching RYISNOWS youtube videos,
         //Never used this technique before, however it worked muc better than my original GUI.
 
@@ -99,7 +99,7 @@ public class Main extends JFrame {
         cont.add(TitlePanel);
         ButtonPanel.add(StartButton);
         cont.add(ButtonPanel);}
-
+/** This CreateStoryScreen Method creates the template for the events to be displayed in the form of a GUI**/
     public void CreateStoryScreen(){
         TitlePanel.setVisible(false);
         ButtonPanel.setVisible(false);
@@ -217,7 +217,7 @@ public class Main extends JFrame {
         //CharectarCreation();
         Scenarios.Charectar();
     }
-    public void CharectarCreation(){
+   /*public void CharectarCreation(){
         Weapon StartingWeapon = new Weapon(12,"Cutting",5.7,"Sword");
         user = new Player(250, 3, 0.15, 8, StartingWeapon , "Johnny",7, 1.45);
         HPlabelUser.setText(String.valueOf(user.getHealth()));
@@ -227,18 +227,18 @@ public class Main extends JFrame {
         CharismaLabelUser.setText(String.valueOf(user.getCharisma()));
 
 
-    }
+    }*/
 
 
 
 
-
+/** This class calls createStoryScreen when start button is pressed**/
 public class TitleScreenHandler implements ActionListener{
    public void actionPerformed(ActionEvent e) {
        CreateStoryScreen();
 
    }}
-
+/** This class is responsible for calling methods based on the action command returned by the buttons in the CreateStoryScreen GUI**/
 public class ChoiceHandler implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String Choice = e.getActionCommand();
