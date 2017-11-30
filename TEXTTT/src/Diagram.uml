@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="712.8416666666668" y="412.0">Player</node>
+    <node x="1490.8416666666667" y="489.0">Creature</node>
+    <node x="226.8416666666667" y="577.0">EnemyConstructor</node>
+    <node x="807.1750000000002" y="0.0">Weapon</node>
+    <node x="0.0" y="2446.0">Scenarios</node>
+    <node x="1312.7333333333336" y="2897.0">CharectarBuild</node>
+    <node x="1589.3416666666667" y="0.0">GameAudio</node>
+    <node x="523.4833333333335" y="1198.0">Main</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Main" target="Creature">
+      <point x="478.0" y="-599.0" />
+      <point x="1598.9833333333336" y="1178.0" />
+      <point x="1960.3416666666667" y="1178.0" />
+      <point x="156.5" y="291.0" />
+    </edge>
+    <edge source="Scenarios" target="EnemyConstructor">
+      <point x="0.0" y="-477.0" />
+      <point x="488.0" y="2421.0" />
+      <point x="333.6500000000001" y="2421.0" />
+      <point x="333.6500000000001" y="1178.0" />
+      <point x="304.5083333333333" y="1178.0" />
+      <point x="-155.33333333333337" y="203.0" />
+    </edge>
+    <edge source="Scenarios" target="Weapon">
+      <point x="-325.33333333333326" y="-477.0" />
+      <point x="162.66666666666674" y="2421.0" />
+      <point x="216.3416666666667" y="2421.0" />
+      <point x="216.3416666666667" y="387.0" />
+      <point x="879.5083333333334" y="387.0" />
+      <point x="-144.66666666666663" y="181.0" />
+    </edge>
+    <edge source="CharectarBuild" target="Main">
+      <point x="0.0" y="-26.0" />
+      <point x="298.75" y="599.0" />
+    </edge>
+    <edge source="Main" target="Player">
+      <point x="0.0" y="-599.0" />
+      <point x="1120.9833333333336" y="1178.0" />
+      <point x="1091.8416666666667" y="1178.0" />
+      <point x="0.0" y="368.0" />
+    </edge>
+    <edge source="Main" target="EnemyConstructor">
+      <point x="-239.0" y="-599.0" />
+      <point x="881.9833333333335" y="1168.0" />
+      <point x="615.1750000000001" y="1168.0" />
+      <point x="155.33333333333337" y="203.0" />
+    </edge>
+    <edge source="Player" target="Weapon">
+      <point x="0.0" y="-368.0" />
+      <point x="1091.8416666666667" y="387.0" />
+      <point x="1024.1750000000002" y="387.0" />
+      <point x="0.0" y="181.0" />
+    </edge>
+    <edge source="Creature" target="Weapon">
+      <point x="0.0" y="-291.0" />
+      <point x="1803.8416666666667" y="387.0" />
+      <point x="1168.8416666666667" y="387.0" />
+      <point x="144.66666666666663" y="181.0" />
+    </edge>
+    <edge source="Scenarios" target="Main">
+      <point x="325.33333333333326" y="-477.0" />
+      <point x="813.3333333333333" y="2421.0" />
+      <point x="822.2333333333335" y="2421.0" />
+      <point x="-298.75" y="599.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.30000000000000016" x="1644.666666666666" y="258.6428571428571" />
+  <SelectedNodes>
+    <node>GameAudio</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
